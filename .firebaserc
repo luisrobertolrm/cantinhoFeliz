@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "cantinhosaofrancisco-c60d8"
+  },
+  "targets": {
+    "cantinhosaofrancisco-c60d8": {
+      "hosting": {
+        "cantinhoFeliz": [
+          "cantinhosaofrancisco-c60d8"
+        ]
+      }
+    }
+  }
+}
