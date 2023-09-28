@@ -29,10 +29,14 @@ export class AgendamentosService {
     return retorno;
   }
 
-  submit(value: Agendamento) {
-    push(ref(this.database, "agendamentos"), value).then(resp => {
-      this.carregar();
+  submit(value: Agendamento):Observable<any> {
+    var observable = new Observable<any>(observer => {
+      push(ref(this.database, "agendamentos"), value).then(resp => {
+        observer.next(resp);
+      });
     });
+
+    return observable;
   }
 
   excluir(item: Agendamento) {

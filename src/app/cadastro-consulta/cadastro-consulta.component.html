@@ -4,34 +4,38 @@
           <h3>Contact Us</h3>
       </div>
       <div class="row">
+
           <div class="col-lg-5 col-md-6 mb-4 contact-form">
-              <div class="form tm-contact-item-inner">
-                  <form action="#" method="POST">
-                    <mat-form-field class="form-group">
-                      <div class="form-group">
-                        <input matInput class="form-control"
-                        placeholder="Ex. Pizza" value="Sushi">
-                      </div>
+              <div class="form tm-contact-item-inner" [formGroup]="form">
+                    <mat-form-field>
+                      <mat-label>Local da consulta</mat-label>
+                      <mat-select formControlName="local">
+                        <mat-option>None</mat-option>
+                        <mat-option value="option1">Sede Um</mat-option>
+                        <mat-option value="option2">Sede 2</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-label>Data</mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="data">
+                      <mat-hint>MM/DD/YYYY</mat-hint>
+                      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-label>O que deseja?</mat-label>
+                      <textarea matInput formControlName="descricao"></textarea>
                     </mat-form-field>
 
                     <mat-form-field class="form-group">
-                      <mat-label>Leave a comment</mat-label>
+                      <mat-label>Deixe um comentário</mat-label>
                       <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
                     </mat-form-field>
-
-                      <div class="form-group">
-                          <input name="name" type="text" class="form-control" placeholder="Name">
-                      </div>
-                      <div class="form-group">
-                          <input name="email" type="text" class="form-control" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                          <textarea name="message" class="textarea form-control" placeholder="Message"></textarea>
-                      </div>
-                      <div class="form-group text-right">
-                          <input type="button" class="btn btn-primary" value="Send it" (click)="salvar()">
-                      </div>
-                  </form>
+                    <div class="example-button-row">
+                      <button mat-raised-button color="primary" (click)="salvar()">Primary</button>
+                    </div>
               </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4 contact-details">
@@ -65,6 +69,8 @@
           </div>
       </div>
   </div>
+
+
   <footer class="footer container container-2">
       <div class="row">
           <p class="col-sm-7">Copyright 2021 Simply Amazed Co.</p>
