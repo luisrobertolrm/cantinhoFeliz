@@ -4,10 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CadastroConsultaComponent } from './cadastro-consulta/cadastro-consulta.component';
-import { QuemSomosComponent } from './quem-somos/quem-somos.component';
-import { NossoTrabalhoComponent } from './nosso-trabalho/nosso-trabalho.component';
-import { GaleriaComponent } from './galeria/galeria.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -23,7 +19,13 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { QuemSomosComponent } from './private/quem-somos/quem-somos.component';
+import { NossoTrabalhoComponent } from './private/nosso-trabalho/nosso-trabalho.component';
+import { GaleriaComponent } from './private/galeria/galeria.component';
+import { DashboardComponent } from './private/dashboard/dashboard.component';
+import { CadastroConsultaComponent } from './private/cadastro-consulta/cadastro-consulta.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,

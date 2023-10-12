@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { AgendamentosService } from '../services/agendamentos.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Agendamento } from '../models/agendamento';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AgendamentosService } from 'src/app/services/agendamentos.service';
 
 
 @Component({
