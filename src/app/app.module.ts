@@ -21,14 +21,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     CadastroConsultaComponent,
     QuemSomosComponent,
     NossoTrabalhoComponent,
-    GaleriaComponent
+    GaleriaComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatNativeDateModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatRadioModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

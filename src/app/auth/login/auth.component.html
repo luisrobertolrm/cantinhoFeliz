@@ -1,0 +1,72 @@
+<section class="contact-section section" id="section-login">
+  <div class="container">
+    <div class="title">
+      <h3>Login</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-md-6 mb-4 contact-form">
+        <div class="form tm-contact-item-inner">
+          <h6>{{selectedStepIndex}}</h6>
+          <mat-stepper #stepper [(selectedIndex)]="selectedStepIndex" (selectionChange)="onStepChange($event)">
+
+            <mat-step completed="false" [stepControl]="authForm">
+              <ng-container [formGroup]="authForm">
+                <mat-form-field>
+                  <mat-label>Insira seu email</mat-label>
+                  <input matInput placeholder="email@example.com" type="email" formControlName="email">
+                  <mat-error *ngIf="authForm.controls.email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Insira sua senha</mat-label>
+                  <input matInput type="password" formControlName="senha">
+                  <mat-error *ngIf="authForm.controls.senha.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </ng-container>
+            </mat-step>
+
+            <mat-step [stepControl]="creaUserForm" [completed]="aba1Completed" *ngIf="tipo == '2'">
+              <ng-container [formGroup]="creaUserForm">
+                <mat-form-field>
+                  <mat-label>Nome</mat-label>
+                  <input matInput placeholder="Nome" type="text" formControlName="nome">
+                  <mat-error *ngIf="authForm.controls.email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Telefone</mat-label>
+                  <input matInput type="text" formControlName="telefone">
+                  <mat-error *ngIf="authForm.controls.senha.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Whats App</mat-label>
+                  <input matInput type="text" formControlName="whatsApp">
+                  <mat-error *ngIf="authForm.controls.senha.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+              </ng-container>
+            </mat-step>
+
+          </mat-stepper>
+
+          <section class="example-section">
+            <mat-radio-group aria-label="Selecione" [(ngModel)]="tipo">
+              <mat-radio-button value="1">Login</mat-radio-button>
+              <mat-radio-button value="2">Cadastro Novo Email</mat-radio-button>
+            </mat-radio-group>
+          </section>
+
+          <br />
+
+          <section>
+            <div class="example-button-row">
+              <button mat-raised-button color="primary" (click)="loginOrCreate()"  *ngIf="!creaUserForm.controls.id.value">{{tipo == '1'? "Login com Email":"Novo
+                Usuário"}}</button>
+              <button mat-raised-button color="primary" (click)="salvarDadosUsuario()"  *ngIf="creaUserForm.controls.id.value">Dados Usuário</button>
+
+              <!-- <button mat-raised-button color="primary" (click)="googleSingIn()" class="ml-3">Login com Google</button> -->
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
