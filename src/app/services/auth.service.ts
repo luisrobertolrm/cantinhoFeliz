@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(private router: Router, private database: Database) { }
 
-  public userAuth?: Usuario;
+  private _userAuth?: Usuario;
   private auth: Auth = inject(Auth);
 
   private KEY_STORAGE = "zXRTOASSsaa";
@@ -121,6 +121,28 @@ export class AuthService {
     } catch (error) {
       this.error = error;
     }
+
+  }
+
+  public get userAuth(): Usuario | null{
+    if(!this._userAuth){
+      let jsonUser = localStorage.getItem(this.KEY_STORAGE);
+
+      if(!jsonUser) return null;
+
+      let usr = JSON.parse(jsonUser);
+      this._userAuth = usr;
+
+      return usr;
+    }
+
+    return this._userAuth as Usuario;
+  }
+
+  private set userAuth(user: any){
+    let jsonUser = JSON.stringify(user);
+    this._userAuth = user;
+    localStorage.setItem(this.KEY_STORAGE, jsonUser);
 
   }
 

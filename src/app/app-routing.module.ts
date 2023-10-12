@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './private/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'consulta-cadastro', pathMatch:'full'},
-  {path:'consulta-cadastro', component: DashboardComponent},
+  {path:'consulta-cadastro',loadChildren: () => import('./private/private.module').then(s => s.PrivateModule) },
   {path:'aut',loadChildren: () => import('./auth/auth.module').then(s => s.AuthModule) }
 ];
 

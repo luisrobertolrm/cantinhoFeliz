@@ -10,30 +10,12 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import { MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatButtonModule} from '@angular/material/button';
-import { QuemSomosComponent } from './private/quem-somos/quem-somos.component';
-import { NossoTrabalhoComponent } from './private/nosso-trabalho/nosso-trabalho.component';
-import { GaleriaComponent } from './private/galeria/galeria.component';
-import { DashboardComponent } from './private/dashboard/dashboard.component';
-import { CadastroConsultaComponent } from './private/cadastro-consulta/cadastro-consulta.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CadastroConsultaComponent,
-    QuemSomosComponent,
-    NossoTrabalhoComponent,
-    GaleriaComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,16 +23,6 @@ import { CadastroConsultaComponent } from './private/cadastro-consulta/cadastro-
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSnackBarModule,
-    MatButtonModule,
-    MatRadioModule,
-    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase())
